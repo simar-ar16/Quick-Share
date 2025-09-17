@@ -14,9 +14,8 @@ export default function Share() {
     setError("");
     setCode(null);
     setCopied(false);
-
     try {
-      const res = await axios.post("http://localhost:5000/api/share", { text });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/share`, { text });
       setCode(res.data.code);
     } catch (err) {
       setError("Something went wrong. Please try again.");

@@ -14,9 +14,8 @@ export default function Retrieve() {
     setLoading(true);
     setError("");
     setText("");
-
     try {
-      const res = await axios.get(`http://localhost:5000/api/share/${code}`);
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/share/${code}`);
       setText(res.data.text);
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong. Please check the code and try again.");
