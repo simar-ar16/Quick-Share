@@ -8,6 +8,11 @@ const generateCode = () => Math.floor(100000 + Math.random() * 900000).toString(
 router.post("/", async (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ message: "Text is required" });
+  try {
+  const existing = await Text.findOne({ text });
+    if (existing) {
+      return res.json({ code: existing.code }); 
+    }
 
   let code;
   let exists = true;
@@ -17,7 +22,7 @@ router.post("/", async (req, res) => {
     exists = await Text.findOne({ code });
   }
 
-  try {
+
     const newText = await Text.create({ text, code });
     res.json({ code: newText.code });
   } catch (err) {
