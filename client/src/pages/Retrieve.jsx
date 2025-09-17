@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Retrieve() {
@@ -24,8 +24,11 @@ export default function Retrieve() {
       setLoading(false);
     }
   };
-
+useEffect(() => {
+      document.title = "QuickShare | Retrieve";
+    }, []);
   return (
+    <>
     <div className="flex flex-col items-center py-16 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Retrieve Text</h1>
 
@@ -58,5 +61,6 @@ export default function Retrieve() {
         </div>
       )}
     </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Share() {
@@ -25,8 +25,13 @@ export default function Share() {
     }
   };
 
+   useEffect(() => {
+    document.title = "QuickShare | Share Text";
+  }, []);
   return (
+    <>
     <div className="flex flex-col items-center py-16 bg-gradient-to-b from-indigo-50 to-white min-h-screen">
+      
       <h1 className="text-3xl font-bold text-gray-800 mb-8">
         Share Your Text
       </h1>
@@ -67,5 +72,6 @@ export default function Share() {
         </div>
       )}
     </div>
+    </>
   );
 }

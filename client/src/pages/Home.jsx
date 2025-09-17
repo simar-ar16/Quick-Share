@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+      document.title = "QuickShare";
+    }, []);
   return (
     <div>
+
       {/* Hero Section */}
       <section className="text-center py-20 bg-gradient-to-b from-indigo-50 to-white">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-6">

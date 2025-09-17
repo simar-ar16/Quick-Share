@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 export default function About() {
+  useEffect(() => {
+        document.title = "QuickShare | About";
+      }, []);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6">
       <div className="bg-white shadow-lg rounded-2xl p-10 max-w-3xl text-center">
